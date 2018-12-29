@@ -1,4 +1,4 @@
-class LivingCreature {
+class forGrassAndGrassEater {
     constructor(x,y,ind){
 		this.index = ind;
 		this.x = x;

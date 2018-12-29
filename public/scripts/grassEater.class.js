@@ -1,5 +1,5 @@
 // Class for GrassEater
-class GrassEater{
+class GrassEater extends forGrassAndGrassEater{
 
     // GrassEater multiply
 	mul(){

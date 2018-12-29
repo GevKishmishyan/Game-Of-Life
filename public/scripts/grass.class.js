@@ -1,5 +1,5 @@
 // class for Grass
-class Grass extends LivingCreature{
+class Grass extends forGrassAndGrassEater{
 
     // Grass multiply
 	mul(){

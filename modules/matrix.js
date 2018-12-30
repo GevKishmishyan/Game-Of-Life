@@ -72,25 +72,5 @@ for (var q = 0; q < predatorCount; q++) {
 // Insert one Vampire on specific cordinate
 matrix[matrix.length - 1][0] = 4;
 
-// Create characters
-for (var i = 0; i < matrix.length; i++) {
-    for (var j = 0; j < matrix[i].length; j++) {
-        if (matrix[i][j] == 1) {
-            var grass = new Grass(j, i, 1);
-            grassArr.push(grass);
-        }
-        else if (matrix[i][j] == 2) {
-            var grassEater = new GrassEater(j, i, 2);
-            grassEaterArr.push(grassEater);
-        }
-        else if (matrix[i][j] == 3) {
-            var predator = new Predator(j, i, 3);
-            predatorArr.push(predator);
-        }
-        else if (matrix[i][j] == 4) {
-            vampire = new Vampire(j, i, 4);
-        }
-    }
-} 
 
 module.exports = matrix;

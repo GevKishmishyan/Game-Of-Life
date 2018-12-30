@@ -3,22 +3,22 @@ var forPredator = require('./forPredator');
 module.exports = class Predator extends forPredator{
 	
     // Predator multiply
-	mul(){
-		var emptyCord = this.getDirections(0);
-		var cord = random(emptyCord);
+	mul(matrix, predatorArrNew){
+		var emptyCord = this.getDirections(matrix, 0);
+		var cord = getRandomCord(emptyCord);
 		if(cord){
 			var x = cord[0];
 			var y = cord[1];
 			var newPredator = new Predator(x,y,this.index);
-			predatorArr.push(newPredator);
+			predatorArrNew.push(newPredator);
 			matrix[y][x] = 3;
 		}
 	}
 
     // Predator move
-	move(){
-		var emptyCord = this.getDirections(0);
-		var cord = random(emptyCord);
+	move(matrix){
+		var emptyCord = this.getDirections(matrix, 0);
+		var cord = getRandomCord(emptyCord);
 		if (cord){
 			var n = cord[0];
 			var m = cord[1];
@@ -30,9 +30,9 @@ module.exports = class Predator extends forPredator{
     }
     
     // Predator eat [include move, mul, die]
-	eat(){
-		var eatCord = this.getDirections(2);
-		var cord = random(eatCord);	
+	eat(matrix, grassEaterArrNew, predatorArrNew){
+		var eatCord = this.getDirections(matrix, 2);
+		var cord = getRandomCord(eatCord);	
 		if(cord){
 	        var n = cord[0];
 	        var m = cord[1];
@@ -40,34 +40,41 @@ module.exports = class Predator extends forPredator{
 	        matrix[m][n] = 3;
 	        this.x = n;
 	        this.y = m;
-	        for (var i in grassEaterArr){
-	        	if (grassEaterArr[i].x == n && grassEaterArr[i].y == m){
-	        		grassEaterArr.splice(i, 1);
+	        for (var i in grassEaterArrNew){
+	        	if (grassEaterArrNew[i].x == n && grassEaterArrNew[i].y == m){
+	        		grassEaterArrNew.splice(i, 1);
 	        	}
 	        }
 	        this.energy++;
 	        if (this.energy == 15){
-	        	this.mul();
+	        	this.mul(matrix, predatorArrNew);
 	        	this.energy = 5;
 	        }  
 		}
 		else{
-			this.move();
+			this.move(matrix);
 			this.energy--;
 			if (this.energy == 0){
-				this.die();
+				this.die(matrix, predatorArrNew);
 				this.energy = 5;
 			}
 		}
 	}
 
     // Predator die
-	die(){
+	die(matrix, predatorArrNew){
 		matrix[this.y][this.x] = 0;
-		for (var i in predatorArr){
-			if (predatorArr[i].x == this.x && predatorArr[i].y == this.y){
-                predatorArr.splice(i, 1);
+		for (var i in predatorArrNew){
+			if (predatorArrNew[i].x == this.x && predatorArrNew[i].y == this.y){
+                predatorArrNew.splice(i, 1);
 	        }
 		}
 	}
 }
+
+function getRandomCord(arr)
+{
+    var randomItem = Math.floor(Math.random() * arr.length);
+    return arr[randomItem];
+}
+

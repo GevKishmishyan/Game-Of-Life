@@ -20,7 +20,7 @@ module.exports = class forGrassAndGrassEater {
 		];
 	}
 
-	getDirections(t){
+	getDirections(matrix, t){
 		this.newDirections();
 		var found = [];
 		for(var i in this.directions){

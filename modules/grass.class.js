@@ -3,16 +3,16 @@ var forGrassAndGrassEater = require('./forGrassAndGrassEater');
 module.exports = class Grass extends forGrassAndGrassEater{
 
     // Grass multiply
-	mul(){
+	mul(matrix, grassArrNew){
 		this.multiply++;
 		if(this.multiply == 3){
-			var emptyCord = this.getDirections(0);
-			var cord = random(emptyCord);
+			var emptyCord = this.getDirections(matrix, 0);
+			var cord = getRandomCord(emptyCord);
 			if(cord){
 				var x = cord[0];
 				var y = cord[1];
 				var newGrass = new Grass(x,y,this.index);
-				grassArr.push(newGrass);
+				grassArrNew.push(newGrass);
 				matrix[y][x] = 1;
 				this.multiply = 0;
 			}
@@ -23,4 +23,10 @@ module.exports = class Grass extends forGrassAndGrassEater{
 	die(){
 
 	}
+}
+
+function getRandomCord(arr)
+{
+    var randomItem = Math.floor(Math.random() * arr.length);
+    return arr[randomItem];
 }

@@ -39,7 +39,7 @@ module.exports = class forPredator {
 		];
 	}
 
-	getDirections(t){
+	getDirections(matrix, t){
 		this.newDirections();
 		var found = [];
 		for(var i in this.directions){

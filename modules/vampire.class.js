@@ -8,14 +8,27 @@ module.exports = class Vampire{
 		this.multiply = 0;
 	}
 
-	getDirections(t){
+	newDirections(matrix){
+		this.directions = [];
+
+		for (var i = 0; i < matrix.length; i++) {
+			for (var j = 0; j < matrix[i].length; j++) {
+				if (i + j == matrix[0].length - 1) {
+					this.directions.push([i, j])
+				}
+			}
+		}
+	}
+
+	getDirections(matrix, t){
+		this.newDirections(matrix);
 		var found = [];
-		for(var i in vampireCord){
-			var x = vampireCord[i][0];
-			var y = vampireCord[i][1];
+		for(var i in this.directions){
+			var x = this.directions[i][0];
+			var y = this.directions[i][1];
 			if(x >= 0 && x < matrix[0].length && y >=0 && y < matrix.length){
 				if(matrix[x][y] == t){
-					found.push(vampireCord[i]);
+					found.push(this.directions[i]);
 				}
 			}
 		}
@@ -23,9 +36,9 @@ module.exports = class Vampire{
 	}
 
     // Vampire eat
-	eat(){
-		var eatCord = this.getDirections(2);
-		var cord = random(eatCord);		
+	eat(matrix, grassEaterArrNew){
+		var eatCord = this.getDirections(matrix, 2);
+		var cord = getRandomCord(eatCord);		
 		if(cord){
 	        var m = cord[0];
 	        var n = cord[1];
@@ -33,12 +46,19 @@ module.exports = class Vampire{
 	        matrix[m][n] = 4;
 	        this.x = n;
 	        this.y = m;	
-	        for (var i in predatorArr){
-				if (predatorArr[i].x == n && predatorArr[i].y == m){
-		        	predatorArr.splice(i, 1);
+	        for (var i in grassEaterArrNew){
+				if (grassEaterArrNew[i].x == n && grassEaterArrNew[i].y == m){
+		        	grassEaterArrNew.splice(i, 1);
 		        }
 			}
 		}
 	}
 
 }
+
+function getRandomCord(arr)
+{
+    var randomItem = Math.floor(Math.random() * arr.length);
+    return arr[randomItem];
+}
+

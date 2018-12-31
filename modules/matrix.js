@@ -20,7 +20,7 @@ var vampireCord = [];
 var new_cord;
 var grassCount = Math.floor(z * 0.4);
 var grassEaterCount = Math.floor(z * 0.1);
-var predatorCount = Math.floor(z * 0.01);
+var predatorCount = Math.floor(z * 0.02);
 
 // Intert 0 to all matrix elements
 for (var l = 0; l < x; l++) {

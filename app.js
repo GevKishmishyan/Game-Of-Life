@@ -66,8 +66,8 @@ io.on("connection", function (socket) {
     for (var i in predatorArr) {
       predatorArr[i].eat(matrix, grassEaterArr, predatorArr);
     }
-    // Vampire eat
-    vampire.eat(matrix, grassEaterArr);
+    // // Vampire eat
+    // vampire.eat(matrix, grassEaterArr);
 
 		socket.emit("redraw", matrix);
 }, time);

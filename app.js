@@ -1,3 +1,5 @@
+// Variables
+
 // requires 
 var express = require('express');
 var app = express();
@@ -10,6 +12,7 @@ var Predator = require('./modules/predator.class');
 var Vampire = require('./modules/vampire.class');
 var matrix = require("./modules/matrix");
 
+// arrays for Characters
 var grassArr = [];
 var grassEaterArr = [];
 var predatorArr = [];
@@ -45,6 +48,7 @@ for (var i = 0; i < matrix.length; i++) {
   }
 } 
 
+// io connection
 io.on("connection", function (socket) {
   socket.emit("send matrix", matrix);
 
@@ -70,7 +74,7 @@ io.on("connection", function (socket) {
 
 });
 
-
+// creating time for set interval
 var time = frameRate(1);
 function frameRate(frameCount) {
   return 1000 / frameCount;

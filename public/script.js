@@ -10,14 +10,16 @@ var socket;
 // Start setup function 
 function setup() {
 
-  // Start creating Canvas
   background('#acacac');
   frameRate(15);
 
   socket = io();
 
+  // socket on for matrix
   socket.on("send matrix", function (mtx) {
     matrix = mtx;
+
+    // Start creating Canvas
     createCanvas(x * side, y * side);
     background('#acacac');
     redraw();

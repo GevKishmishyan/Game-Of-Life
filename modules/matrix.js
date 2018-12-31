@@ -10,17 +10,11 @@ var Vampire = require('./vampire.class');
 var matrix = [];
 var x = 60;
 var y = 60;
-// var side = 10;
 var z = x * y;
 
 // for arrays
 var allcord = [];
-var grassArr = [];
-var grassEaterArr = [];
-var predatorArr = [];
 var vampireCord = [];
-// var vampireArr = [];
-// var vampire;
 
 //for count
 var new_cord;
@@ -72,5 +66,5 @@ for (var q = 0; q < predatorCount; q++) {
 // Insert one Vampire on specific cordinate
 matrix[matrix.length - 1][0] = 4;
 
-
+// export matrix
 module.exports = matrix;

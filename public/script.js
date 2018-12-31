@@ -2,7 +2,7 @@
 
 // for matrix
 var matrix = [];
-var x = 30;
+var x = 20;
 var y = 20;
 var side = 35;
 var socket; 
@@ -10,11 +10,13 @@ var socket;
 var img;
 var santa;
 var grinch;
+var deer;
 
 function preload() {
   gift = loadImage('img/gift.png');
   santa = loadImage('img/santa.png');
   grinch = loadImage('img/grinch.png');
+  deer = loadImage('img/deer.png');
 }
 
 // Start setup function 
@@ -64,10 +66,11 @@ function draw() {
         // rect(j * side, i * side, side, side);
         image(grinch, i * side, j * side, side, side);
       }
-      // else if (matrix[i][j] == 4) {
-      //   fill("purple");
-      //   rect(j * side, i * side, side, side);
-      // }
+      else if (matrix[i][j] == 4) {
+        // fill("purple");
+        // rect(j * side, i * side, side, side);
+        image(deer, i * side, j * side, side, side);
+      }
       // else {
       //   fill("#acacac");
       //   rect(j * side, i * side, side, side);

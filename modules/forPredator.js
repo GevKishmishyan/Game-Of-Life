@@ -3,7 +3,7 @@ module.exports = class forPredator {
 		this.index = ind;
 		this.x = x;
 		this.y = y;
-		this.energy = 10;
+		this.energy = 5;
 		this.multiply = 0;
 	}
 

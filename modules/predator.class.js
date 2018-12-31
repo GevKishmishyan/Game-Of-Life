@@ -46,9 +46,9 @@ module.exports = class Predator extends forPredator{
 	        	}
 	        }
 	        this.energy++;
-	        if (this.energy == 15){
+	        if (this.energy == 10){
 	        	this.mul(matrix, predatorArrNew);
-	        	this.energy = 5;
+	        	this.energy = 10;
 	        }  
 		}
 		else{

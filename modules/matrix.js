@@ -8,8 +8,8 @@ var Vampire = require('./vampire.class');
 
 // for matrix
 var matrix = [];
-var x = 60;
-var y = 60;
+var x = 20;
+var y = 20;
 var z = x * y;
 
 // for arrays

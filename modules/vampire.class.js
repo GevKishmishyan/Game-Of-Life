@@ -36,8 +36,8 @@ module.exports = class Vampire{
 	}
 
     // Vampire eat
-	eat(matrix, grassEaterArrNew){
-		var eatCord = this.getDirections(matrix, 2);
+	eat(matrix, predatorArrNew){
+		var eatCord = this.getDirections(matrix, 3);
 		var cord = getRandomCord(eatCord);		
 		if(cord){
 	        var m = cord[0];
@@ -46,9 +46,9 @@ module.exports = class Vampire{
 	        matrix[m][n] = 4;
 	        this.x = n;
 	        this.y = m;	
-	        for (var i in grassEaterArrNew){
-				if (grassEaterArrNew[i].x == n && grassEaterArrNew[i].y == m){
-		        	grassEaterArrNew.splice(i, 1);
+	        for (var i in predatorArrNew){
+				if (predatorArrNew[i].x == n && predatorArrNew[i].y == m){
+		        	predatorArrNew.splice(i, 3);
 		        }
 			}
 		}

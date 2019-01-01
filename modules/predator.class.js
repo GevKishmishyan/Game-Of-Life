@@ -30,7 +30,7 @@ module.exports = class Predator extends forPredator{
     }
     
     // Predator eat [include move, mul, die]
-	eat(matrix, grassEaterArrNew, predatorArrNew){
+	eat(matrix, grassEaterArrForPredator, predatorArrNew){
 		var eatCord = this.getDirections(matrix, 2);
 		var cord = getRandomCord(eatCord);	
 		if(cord){
@@ -40,9 +40,9 @@ module.exports = class Predator extends forPredator{
 	        matrix[m][n] = 3;
 	        this.x = n;
 	        this.y = m;
-	        for (var i in grassEaterArrNew){
-	        	if (grassEaterArrNew[i].x == n && grassEaterArrNew[i].y == m){
-	        		grassEaterArrNew.splice(i, 1);
+	        for (var i in grassEaterArrForPredator){
+	        	if (grassEaterArrForPredator[i].x == n && grassEaterArrForPredator[i].y == m){
+	        		grassEaterArrForPredator.splice(i, 1);
 	        	}
 	        }
 	        this.energy++;

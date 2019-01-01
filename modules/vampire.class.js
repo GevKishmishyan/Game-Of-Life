@@ -48,7 +48,7 @@ module.exports = class Vampire{
 	        this.y = m;	
 	        for (var i in predatorArrNew){
 				if (predatorArrNew[i].x == n && predatorArrNew[i].y == m){
-		        	predatorArrNew.splice(i, 3);
+		        	predatorArrNew.splice(i, 1);
 		        }
 			}
 		}
